@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Bandariya😁!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --pink: #ffb6d5;
+            --white: #fff;
+            --accent: #ff69b4;
+            --shadow: 0 4px 24px rgba(255, 182, 213, 0.3);
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--pink) 0%, var(--white) 100%);
+            overflow-x: hidden;
+            transition: background 1s;
+        }
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            background: rgba(255,255,255,0.8);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 40px 30px;
+            text-align: center;
+            animation: fadeIn 1.5s;
+        }
+        h1 {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            animation: popIn 1s;
+        }
+        h2 {
+            color: #d72660;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+        }
+        .btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 36px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 20px 10px 0 10px;
+            box-shadow: 0 2px 8px #ffb6d5aa;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background: #d72660;
+            transform: scale(1.05);
+        }
+        .surprise {
+            margin: 30px 0;
+            display: none;
+            animation: fadeInUp 1s;
+        }
+        .balloons {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .balloon {
+            position: absolute;
+            width: 60px; height: 80px;
+            background: radial-gradient(circle at 60% 40%, #fff 0%, var(--pink) 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 8px 24px #ffb6d5aa;
+            animation: float 8s linear infinite;
+        }
+        .balloon:nth-child(1) { left: 10vw; animation-delay: 0s;}
+        .balloon:nth-child(2) { left: 30vw; animation-delay: 2s;}
+        .balloon:nth-child(3) { left: 50vw; animation-delay: 4s;}
+        .balloon:nth-child(4) { left: 70vw; animation-delay: 1s;}
+        .balloon:nth-child(5) { left: 85vw; animation-delay: 3s;}
+        @keyframes float {
+            0% { top: 100vh; opacity: 0.7;}
+            80% { opacity: 1;}
+            100% { top: -120px; opacity: 0;}
+        }
+        @keyframes fadeIn {
+            from { opacity: 0;}
+            to { opacity: 1;}
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.7);}
+            80% { transform: scale(1.1);}
+            100% { transform: scale(1);}
+        }
+        .nav {
+            margin-bottom: 30px;
+        }
+        .nav button {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin: 0 10px;
+            cursor: pointer;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: border 0.2s;
+        }
+        .nav button.active, .nav button:hover {
+            border-bottom: 2px solid var(--accent);
+        }
+        /* Responsive */
+        @media (max-width: 700px) {
+            .container { padding: 20px 5vw;}
+            h1 { font-size: 2rem;}
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+    <div class="container">
+        <div class="nav">
+            <button class="active" onclick="showPage(0)">Bandariya</button>
+            <button onclick="showPage(1)">surprise dekh</button>
+             <button onclick="showPage(2)">yaha dekh</button>  
+        </div>
+        <!-- Page 1: Home -->
+        <div class="page" id="page0">
+            <h1>Happy Birthday, Falak! 🎉</h1>
+            <h2>Janam din ki dherrrr saarii badhaiii !</h2>
+            <img src="happy-birthday-cat.gif" alt="Birthday Cake" style="margin:20px 0;">
+          <!--  <p style="font-size:1.2rem;">Click on the Surprises tab to unlock your birthday gifts and more!</p> --> 
+        </div>
+        <!-- Page 2: Surprises -->
+        <div class="page" id="page1" style="display:none;">
+            <h1>🎁 Surprise Falak!</h1>
+            <div>
+                <button class="btn" onclick="revealSurprise(1)">Cake khayegi ?</button>
+                <div class="surprise" id="surprise1">
+                    <h2>ye le chudail ke liye cake 🎂</h2>
+                    <img src="cake-party.gif" alt="Cake">
+                    <p>fuk maar idhar 🌬️ 🕯️</p>
+                </div>
+            </div>
+            <div>
+                <button class="btn" onclick="revealSurprise(2)">thoda gana sun le</button>
+                <div class="surprise" id="surprise2">
+                    <h2>🎶 ye sun jra!</h2>
+                    <audio controls autoplay loop>
+                        <source src="hbd.mp3" type="audio/mpeg">
+
+                    </audio>
+                    <p>kaisa lga 😂!</p>
+                </div>
+            </div>
+            <!-- <div>
+                <button class="btn" onclick="revealSurprise(3)"></button>
+                <div class="surprise" id="surprise3">
+                    <h2>💌 A Special Message</h2>
+                    <p>Faiz vkl tere liye sala itna kr rha hun lodu...  🌟</p>
+                </div>
+            </div> -->
+        </div>
+        <!-- Page 3: Explore -->
+        <div class="page" id="page2" style="display:none;">
+            <h1>✨ Bachh ke!</h1>
+            <div style="margin:30px 0;">
+                <button class="btn" onclick="confetti()" onclick="revealSurprise(3)">click kr jra</button>
+                <div class="surprise" id="surprise3">
+                    <h2>😃😄😂😁</h2>
+               </div>
+            </div>
+             
+                <button class="btn" onclick="showMemory(0)">idhar bhi</button>
+            </div>
+            <div id="explore-content" style="min-height:80px;"></div>
+        </div>
+    </div>
+    <script>
+        // Navigation
+        function showPage(idx) {
+            document.querySelectorAll('.page').forEach((el, i) => {
+                el.style.display = (i === idx) ? '' : 'none';
+            });
+            document.querySelectorAll('.nav button').forEach((btn, i) => {
+                btn.classList.toggle('active', i === idx);
+            });
+        }
+        // Surprises
+        function revealSurprise(num) {
+            const el = document.getElementById('surprise' + num);
+            if (el.style.display !== 'block') {
+                el.style.display = 'block';
+                el.style.animation = 'fadeInUp 1s';
+            }
+        }
+        // Explore: Confetti
+        function confetti() {
+            let content = document.getElementById('explore-content');
+            content.innerHTML = '';
+            for (let i = 0; i < 60; i++) {
+                let conf = document.createElement('div');
+                conf.style.position = 'absolute';
+                conf.style.left = (Math.random() * 90 + 5) + '%';
+                conf.style.top = '-30px';
+                conf.style.width = '12px';
+                conf.style.height = '12px';
+                conf.style.borderRadius = '50%';
+                conf.style.background = ['#ffb6d5','#fff','#ff69b4','#d72660','#f7c5e0'][Math.floor(Math.random()*5)];
+                conf.style.opacity = 0.9;
+                conf.style.transition = 'top 1.8s cubic-bezier(.17,.67,.83,.67)';
+                conf.style.zIndex = 10;
+                content.appendChild(conf);
+                setTimeout(() => {
+                    conf.style.top = (Math.random()*120+40) + 'px';
+                }, 10);
+                setTimeout(() => conf.remove(), 2000);
+            }
+        }
+        // Explore: Show Memory
+        function showMemory() {
+            let content = document.getElementById('explore-content');
+            content.innerHTML = `
+                <h2>Billo ke tarf se bhi Happy Birthday 🐱</h2>
+                <img src="dancing-cat-dance.gif" alt="meme" style="margin:10px 0;">
+                <p>...🥳... </p>
+            `;
+        }
+    </script>
+</body>
+</html></audio></div></html> 
